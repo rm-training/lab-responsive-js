@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mobile - Responsive JS training</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 5px;
+        }
+        .row {
+            float: left;
+            width: 30vw;
+            border: 2px black solid;
+            height: 200px;
+            padding: 10px;
+            margin: 2px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        @media only screen and (max-width: 1024px) {
+            .row {
+                display: block;
+                width: 95%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row">First box</div>
+    <div class="row">Second box</div>
+    <div class="row">Third box</div>
+</body>
+</html>

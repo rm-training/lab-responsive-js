@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mobile - Responsive JS training</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <style>
+        body {
+            background: #F0F0F3;
+        }
+        .login-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin: 100px 0;
+            padding: 40px 20px 0 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="large-3 large-centered columns">
+    <div class="login-box">
+        <div class="row">
+            <div class="large-12 columns">
+                <span id="loginMessage" hidden>Welcome home, admin!</span>
+                <form id="loginForm">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="text" name="username" id="user" placeholder="Username" />
+                            <span id="message" hidden>Welcome back, please enter your password to login:</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="password" name="password" id="pwd" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 large-centered columns">
+                            <input type="button" class="button expand" id="login" value="Log In"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let loginBtn = document.getElementById("login");
+    let user = document.getElementById("user");
+    let pwd = document.getElementById("pwd");
+    let message = document.getElementById("message");
+    let loginMessage = document.getElementById("loginMessage");
+    let loginForm = document.getElementById("loginForm");
+
+    loginBtn.addEventListener('click', login);
+
+    hideUsernameInput();
+
+    function login() {
+        console.log("Logging in...");
+        let username = sessionStorage.getItem("user") || user.value;
+        if (username == "admin" && pwd.value == "password"){
+            localStorage.setItem("user", user.value);
+            sessionStorage.setItem("user", user.value);
+            loginForm.style.display = "none";
+            loginMessage.removeAttribute("hidden");
+
+        }
+    }
+
+    function hideUsernameInput(){
+        if (sessionStorage.getItem("user")){
+            user.style.display = "none";
+            user.value = sessionStorage.getItem("user");
+            message.removeAttribute("hidden");
+        } else {
+            user.style.display =  "block";
+            message.setAttribute("hidden", "");
+        }
+    }
+</script>
+</body>
+</html>

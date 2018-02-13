@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mobile - Responsive JS training</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
+</head>
+<body>
+    <div id="slider">
+        <img id="image" src="" >
+    </div>
+    <script>
+        let images = ["https://farm3.staticflickr.com/2878/33384011851_8bdd101fe0_c.jpg",
+            "https://farm4.staticflickr.com/3774/32382975693_820d4909c9_c.jpg",
+            "https://farm3.staticflickr.com/2944/33198158365_525a214c08_c.jpg"];
+        let image = document.getElementById("image");
+        let slider = document.getElementById("slider");
+        let i = 0;
+        image.src = images[i];
+        let hammer = new Hammer(slider);
+        hammer.on('swipe', (event) => {
+            console.log(event);
+            if (event.offsetDirection == 2){
+                i = (i+1) % (images.length);
+                image.src = images[i];
+            } else  if (event.offsetDirection == 4){
+                i = (i == 0 ? images.length - 1 : i-1);
+                image.src = images[i];
+            }
+        });
+    </script>
+</body>
+</html>
