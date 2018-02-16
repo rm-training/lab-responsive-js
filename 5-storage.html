@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mobile - Responsive JS training</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <form id="user-form" action="#" method="POST">
+      <div class="row">
+        <div class="large-12 columns">
+          <label>Username
+            <input type="text" name="username" placeholder="Username" />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns">
+          <label>Password
+            <input type="password" name="password" placeholder="Password" />
+          </label>
+        </div>
+    <div class="row">
+        <div class="large-1 columns">
+            <input type="submit" class="button" value="Login">
+        </div>
+    </div>
+
+    </form>
+
+    <script>
+
+        // when a user hits submit
+        const form = document.getElementById('user-form');
+        const username = document.querySelector('input[name=username]');
+        const password = document.querySelector('input[name=password]');
+        const previousUser = localStorage.getItem('user');
+
+        // refreshing browser should auto-fill username
+        if (previousUser) {
+            username.value = previousUser;
+        }
+
+        form.addEventListener('submit', function(e) {
+
+            console.log('Submitting...');
+
+            e.preventDefault();
+
+            // if username is admin
+            if (
+                username.value == 'admin' &&
+                password.value == 'password'
+            ) {
+
+                console.log('saving in session');
+                sessionStorage.setItem('user', username.value);
+                localStorage.setItem('user', username.value);
+                sessionStorage.setItem('pass', password.value);
+            }
+
+        });
+
+    </script>
+</body>
+</html>
