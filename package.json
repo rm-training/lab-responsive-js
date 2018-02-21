@@ -1,0 +1,23 @@
+{
+  "name": "responsive-js",
+  "version": "1.0.0",
+  "description": "Training materials for Responsive and Mobile JS Course",
+  "main": "index.html",
+  "scripts": {
+    "start": "./node_modules/http-server/bin/http-server -p 8991",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rm-training/responsive-js.git"
+  },
+  "author": "Ryan Morris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rm-training/responsive-js/issues"
+  },
+  "homepage": "https://github.com/rm-training/responsive-js#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
