@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "./node_modules/http-server/bin/http-server -p 8991",
+    "ssl": "./node_modules/http-server/bin/http-server -p 8991 --ssl --cert server/cert.pem --key server/key.pem",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
