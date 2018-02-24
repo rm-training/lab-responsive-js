@@ -5,12 +5,28 @@
     <title>Mobile - Responsive JS training</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-theme-dark.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-language-english.min.css">
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/offline.min.js"></script>
+
+    <script>
+
+        Offline.options = {
+            checks: {
+                image: {
+                    url: 'https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/img/tiny-image.gif'
+                },
+                active: 'image'
+            }
+        };
+
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-theme-slide.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-language-chinese-simplified.min.css" rel="stylesheet">
 
 </head>
 <body>
-    This is just a test webpage
+    <h1>Hello</h1>
 </body>
 </html>
