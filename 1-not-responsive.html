@@ -9,7 +9,9 @@
         body {
             padding: 5px;
         }
+
         .row {
+            box-sizing: border-box;
             float: left;
             width: 30vw;
             border: 2px black solid;
@@ -18,6 +20,15 @@
             margin: 2px;
             text-align: center;
             vertical-align: middle;
+        }
+
+        @media (max-width: 1024px) {
+            .row {
+                display: block;
+                float: none;
+                width: 100%;
+                margin: 0 auto 1em;
+            }
         }
     </style>
 </head>

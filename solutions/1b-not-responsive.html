@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mobile - Responsive JS training</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            padding: 5px;
+        }
+
+        .row {
+            box-sizing: border-box;
+            float: left;
+            width: 30vw;
+            border: 2px black solid;
+            height: 200px;
+            padding: 10px;
+            margin: 2px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #device-notice {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 5vh;
+            text-align: center;
+            line-height: 5vh;
+            background-color: #ececec;
+        }
+
+        @media (max-width: 1024px) {
+            .row {
+                display: block;
+                float: none;
+                width: 100%;
+                margin: 0 auto 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row">First box</div>
+    <div class="row">Second box</div>
+    <div class="row">Third box</div>
+    <div id="device-notice"></div>
+
+    <script>
+        function displayNotice(matches) {
+            let el = document.getElementById('device-notice');
+
+            if (matches) {
+                // it is matching
+                console.log('matching');
+                el.innerHTML = 'You are matching';
+                el.style.display = 'block';
+            } else {
+                // it is not matching
+                console.log('not matching');
+                el.innerHTML = 'You are not matching';
+                el.style.display = 'none';
+            }
+        }
+
+        mediaQueryList = window.matchMedia("(max-width: 480px)");
+
+        mediaQueryList.addListener(function(e) {
+            displayNotice(e.matches);
+        });
+
+        displayNotice(mediaQueryList.matches);
+    </script>
+</body>
+</html>
